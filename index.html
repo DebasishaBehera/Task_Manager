@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> taskflow</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container" id="app">
+        <!-- header -->
+        <header class="app-header">
+            <h1><i class="fas fa-check-circle"
+                    style="background: none; -webkit-text-fill-color: currentColor; margin-right: 10px;"></i>taskflow
+            </h1>
+            <div class="theme-toggle" id="themeToggle">
+                <i class="fas fa-moon"></i> <span id="themeLabel">Dark</span>
+            </div>
+        </header>
+
+        <!-- form -->
+        <div class="task-form" id="taskForm">
+            <div class="form-group">
+                <label><i class="far fa-pen-to-square"></i> Task title</label>
+                <input type="text" id="taskTitleInput" placeholder="write a task...">
+            </div>
+            <div class="form-group">
+                <label><i class="fas fa-tag"></i> Category</label>
+                <select id="taskCategorySelect">
+                    <option value="work">💼 work</option>
+                    <option value="personal" selected>🧘 personal</option>
+                    <option value="urgent">🔥 urgent</option>
+                </select>
+            </div>
+            <button class="btn-primary" id="addTaskBtn"><i class="fas fa-plus"></i> Add task</button>
+        </div>
+
+
+        <div class="stats" id="statsContainer">
+            <span><i class="fas fa-list"></i> total: <strong id="totalCount">0</strong></span>
+            <span><i class="fas fa-circle-check"></i> done: <strong id="doneCount">0</strong></span>
+            <span><i class="fas fa-hourglass-half"></i> pending: <strong id="pendingCount">0</strong></span>
+            <button id="clearAllBtn"
+                style="background: #ffd9d9; border: none; border-radius: 60px; padding: 0.2rem 1.2rem; font-weight: 500; cursor: pointer;">🗑️
+                clear all</button>
+        </div>
+
+        <!-- task grid -->
+        <div id="taskContainer" class="task-grid"></div>
+
+        <!-- event propagation demo -->
+        <div class="event-demo">
+            <div class="grandparent" id="grandparent">
+                <span style="font-weight: 500;">👴 grandparent</span>
+                <div class="parent" id="parent">
+                    <span style="font-weight: 500;">👨 parent</span>
+                    <button class="child-btn" id="childBtn">👶 click me (child)</button>
+                </div>
+            </div>
+            <div class="event-log" id="eventLog">⚡ click child → log order</div>
+        </div>
+
+        <!-- rendering pipeline -->
+        <section class="pipeline-section">
+            <h3 style="font-weight: 500; letter-spacing: -0.2px;">⚙️ browser rendering pipeline</h3>
+            <div class="pipeline-flow">
+                <span class="pipeline-card">HTML</span>
+                <span class="pipeline-arrow">→</span>
+                <span class="pipeline-card">parsing</span>
+                <span class="pipeline-arrow">→</span>
+                <span class="pipeline-card">tokenization</span>
+                <span class="pipeline-arrow">→</span>
+                <span class="pipeline-card">DOM tree</span>
+                <span class="pipeline-arrow" style="font-size:1.2rem;">➕</span>
+                <span class="pipeline-card">CSSOM tree</span>
+                <span class="pipeline-arrow">→</span>
+                <span class="pipeline-card">render tree</span>
+                <span class="pipeline-arrow">→</span>
+                <span class="pipeline-card">paint</span>
+            </div>
+            <div class="pipeline-desc">
+                <i class="fas fa-code"></i> HTML → tokens → DOM · CSS → CSSOM · combined → Render Tree · layout · paint
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
