@@ -14,8 +14,10 @@ body {
   background: #f4f7fc;
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  padding: 2rem 1.5rem;
+  padding-bottom: 2rem;
   transition:
     background 0.2s,
     color 0.2s;
@@ -35,11 +37,22 @@ body[data-theme="dark"] {
 .app-header {
   display: flex;
   justify-content: space-between;
+  width: 100%;
+  height: 5rem;
+  padding: 1rem 4rem;
   align-items: center;
-  flex-wrap: wrap;
   margin-bottom: 2rem;
-  gap: 1rem;
+  background-color: whitesmoke;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
+
+body[data-theme="dark"] .app-header {
+  background: #1A2137;
+  color: #eef2f6;
+}
+
 
 .app-header h1 {
   font-weight: 600;
@@ -163,7 +176,7 @@ body[data-theme="dark"] .form-group select {
 /* task grid */
 .task-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
   gap: 1.6rem;
   margin-top: 1.2rem;
 }
@@ -228,7 +241,7 @@ body[data-theme="dark"] .task-category {
   border: 1px solid #d8deec;
   border-radius: 40px;
   padding: 0.45rem 1rem;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-weight: 500;
   display: flex;
   align-items: center;

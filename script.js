@@ -81,19 +81,19 @@ function createTaskCard(task) {
 
   const editBtn = document.createElement("button");
   editBtn.className = "edit-btn";
-  editBtn.innerHTML = '<i class="fas fa-pen"></i> edit';
+  editBtn.innerHTML = '<i class="fas fa-pen"></i> Edit';
   editBtn.dataset.action = "edit";
 
   const completeBtn = document.createElement("button");
   completeBtn.className = "complete-btn";
   completeBtn.innerHTML = task.completed
-    ? '<i class="fas fa-undo"></i> undo'
-    : '<i class="fas fa-check"></i> complete';
+    ? '<i class="fas fa-undo"></i> Undo'
+    : '<i class="fas fa-check"></i> Complete';
   completeBtn.dataset.action = "complete";
 
   const deleteBtn = document.createElement("button");
   deleteBtn.className = "delete-btn";
-  deleteBtn.innerHTML = '<i class="fas fa-trash"></i> delete';
+  deleteBtn.innerHTML = '<i class="fas fa-trash"></i> Delete';
   deleteBtn.dataset.action = "delete";
 
   actions.append(editBtn, completeBtn, deleteBtn);
